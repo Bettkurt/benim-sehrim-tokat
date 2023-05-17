@@ -1,0 +1,14 @@
+.navbar
+{
+    opacity: 0.0;
+    border-bottom: 1px solid #fff;
+
+}
+.nav-item:hover {
+	color: rgb(255, 255, 255);
+}
+
+.fa-ellipsis-v
+{
+	color: #fff;
+}
