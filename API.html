@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
 
+   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
         #searchForm {
             text-align: center;
             margin-top: 50px;
@@ -31,7 +41,7 @@
             margin-top: 30px;
         }
 
-        .movie {
+        .book {
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -41,68 +51,74 @@
             align-items: center;
         }
 
-        .movie img {
+        .book img {
             width: 80px;
             margin-right: 20px;
         }
 
-        .movie-info {
+        .book-info {
             flex-grow: 1;
         }
 
-        .movie h3 {
+        .book h3 {
             color: #333;
             margin-top: 0;
         }
 
-        .movie p {
+        .book p {
             color: #666;
         }
     </style>
 </head>
-<body>
-    <div id="searchForm">
-        <h1>Film Arama</h1>
-        <input type="text" id="searchInput" placeholder="Film adı girin">
-        <button id="searchButton" onclick="searchMovies()">Ara</button>
+
+   <div id="searchForm">
+        <h1>Kitap Arama</h1>
+        <input type="text" id="searchInput" placeholder="Kitap adı girin">
+        <button id="searchButton" onclick="searchBooks()">Ara</button>
     </div>
     <div id="results"></div>
 
     <script>
-        function searchMovies() {
+        function searchBooks() {
             var query = document.getElementById("searchInput").value;
-            var url = "https://www.omdbapi.com/?s=" + query + "&apikey=YOUR_API_KEY";
+            var url = "https://www.googleapis.com/books/v1/volumes?q=" + query;
 
             $.get(url, function(data) {
-                var movies = data.Search;
+                var items = data.items;
                 var resultsDiv = document.getElementById("results");
                 resultsDiv.innerHTML = "";
 
-                if (movies) {
-                    movies.forEach(function(movie) {
-                        var title = movie.Title;
-                        var year = movie.Year;
-                        var poster = movie.Poster;
+                if (items) {
+                    items.forEach(function(item) {
+                        var volumeInfo = item.volumeInfo;
+                        var title = volumeInfo.title;
+                        var authors = volumeInfo.authors ? volumeInfo.authors.join(", ") : "";
+                        var thumbnail = volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : "";
 
-                        var movieDiv = document.createElement("div");
-                        movieDiv.classList.add("movie");
+                        var bookDiv = document.createElement("div");
+                        bookDiv.classList.add("book");
 
-                        var posterImg = document.createElement("img");
-                        posterImg.src = poster;
-                        movieDiv.appendChild(posterImg);
+                        var thumbnailImg = document.createElement("img");
+                        thumbnailImg.src = thumbnail;
+                        bookDiv.appendChild(thumbnailImg);
 
-                        var movieInfoDiv = document.createElement("div");
-                        movieInfoDiv.classList.add("movie-info");
-                        movieInfoDiv.innerHTML = "<h3>" + title + "</h3><p>" + year + "</p>";
-                        movieDiv.appendChild(movieInfoDiv);
+                        var bookInfoDiv = document.createElement("div");
+                        bookInfoDiv.classList.add("book-info");
+                        bookInfoDiv.innerHTML = "<h3>" + title + "</h3><p>" + authors + "</p>";
+                        bookDiv.appendChild(bookInfoDiv);
 
-                        resultsDiv.appendChild(movieDiv);
+                        resultsDiv.appendChild(bookDiv);
                     });
                 } else {
-                    resultsDiv.innerHTML = "<p>Film bulunamadı.</p>";
+                    resultsDiv.innerHTML = "<p>Kitap bulunamadı.</p>";
                 }
             });
         }
     </script>
+   
+     <!-- BOOTSTRAP -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>
