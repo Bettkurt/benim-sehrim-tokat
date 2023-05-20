@@ -27,15 +27,16 @@
  
   
 <body>
-<div class="container-fluid">
-   <div class="row mb-5" style="background-color: rgb(192, 39, 39) ">
-   <div class="col">
-       
-       <nav class="navbar navbar-expand-lg navbar-light bg-a fixed-top">
+<<div class="container-fluid">
+		<div class="row mb-5">
+		<div class="col">
+			
+		<nav class="navbar navbar-expand-lg navbar-light bg-a fixed-top" style="background: #c92636;">
+			  
          
 	<header>
 
-		<div class="bg-info text-light jumbotron balikcilar-jumbotron">
+		<div class="bg-dark text-light jumbotron balikcilar-jumbotron">
 
 			<div class="container">
 

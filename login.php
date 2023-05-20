@@ -41,7 +41,7 @@
 <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav mx-auto">
 
-    <li class="nav-item active">
+  <li class="nav-item active">
       <a class="nav-link" href="index.html">  <i class="fas fa-home"></i>
         ANASAYFA</a>
         
@@ -55,19 +55,25 @@
       <a class="nav-link" href="sehrim.html"><i class="fas fa-city"></i>
         ŞEHRİM</a>
     </li>
+    
     <li class="nav-item">
       <a class="nav-link" href="iletişim.html"><i class="fas fa-tty"></i>
         İLETİŞİM</a>
     </li>
     <li class="nav-item">
-		<a class="nav-link" href="takımım.html"><i class="fas fa-futbol"></i>
-		  TAKIMIM</a>
-	  </li>
+      <a class="nav-link" href="takımım.html"><i class="fas fa-futbol"></i>
+        TAKIMIM</a>
+      </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.html"> <i class="fas fa-sign-in-alt"></i>
-          LOGİN</a>
-        
-    </li>
+        <a class="nav-link" href="mirasımız.html">
+         MİRASIMIZ</a>
+        </li>
+  
+        <li class="nav-item">
+          <a class="nav-link" href="login.php"> <i class="fas fa-sign-in-alt"></i>
+            LOGİN</a>
+          
+      </li>
   </ul>
 </div>
 </nav>
