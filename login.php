@@ -101,15 +101,15 @@
 
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="text" name="email" class="form-control" placeholder="Email '123@sakarya.edu.tr'" required="required">
+					<input type="text" id="email" name="email" class="form-control" placeholder="Email '123@sakarya.edu.tr'" required="required">
 				</div>
 
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" name="password" class="form-control" placeholder="Şifre '123'" required="required">
+					<input type="password" id="password" name="password" class="form-control" placeholder="Şifre '123'" required="required">
 				</div>
 
-				<button class="btn btn btn-info" type="submit">Gönder</button>
+				<button  class="btn btn btn-info login-btn" type="button">Login ol</button>
 
 				<br><br><br>
 
@@ -122,4 +122,30 @@
 
 
 </header>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+<script>
+
+	
+$(document).ready(function(){
+	localStorage.setItem('userInfo','{"email":"123@sakarya.edu.tr","password":"1234"}') //ilk yüklendiğinde sabit kullanıcı ve şifre oluşturuyor. Bu şifreye göre login kontrolu yapıalcak.
+
+
+$(document).on("click",'.login-btn',function(){
+alert("tıklandı")
+
+var userInfo = JSON.parse(localStorage.getItem('userInfo'))
+
+if (userInfo.email==$('#email').val()&&userInfo.password==$('#password').val()) {
+    alert('login başarılı')
+	$('form').html("")
+	$('form').html(`Hoşgeldinizzzs... ${userInfo.email}`)
+}else{
+	alert('email yada parola hatalı')
+}
+})
+
+});
+</script>
     </html>
