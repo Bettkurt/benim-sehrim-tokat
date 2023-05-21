@@ -106,7 +106,7 @@
 
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" id="password" name="password" class="form-control" placeholder="Şifre '123'" required="required">
+					<input type="password" id="password" name="password" class="form-control" placeholder="Şifre '1234'" required="required">
 				</div>
 
 				<button  class="btn btn btn-info login-btn" type="button">Login ol</button>
@@ -122,6 +122,10 @@
 
 
 </header>
+
+<footer class="py-5 bg-dark text-white text-center">
+		Web-Teknolojileri-Projesi © Betül Kurt
+	</footer>
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
